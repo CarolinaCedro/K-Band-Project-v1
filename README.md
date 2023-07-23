@@ -1,28 +1,33 @@
-# KBandExplorer
+# K-Band-Project (Projeto em Construção)
+- [X] Paginação
+- [ ] Testes unitarios
+- [X] Routing
+- [x] Loanding global
+- [ ] Menu lateral
+- [ ] Interceptor
+- [ ] Filtro funcionalidade
+- [ ] Filtrar por gênero
+- [ ] Filtro livre
+- [ ] Funcionalidade assistir trailer
+- [ ] Listar atores
+- [ ] Deploy
+- [ ] Documentação
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
 
-## Development server
+Inicial
+![image](https://github.com/CarolinaCedro/K-Band-Project-v1/assets/75391803/3c588704-390a-448a-8b1c-089929aef10b)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Footer
+![image](https://github.com/CarolinaCedro/K-Band-Project-v1/assets/75391803/d0b862a7-70aa-433f-a92f-444a73a2f9b2)
 
-## Code scaffolding
+Details
+![image](https://github.com/CarolinaCedro/K-Band-Project-v1/assets/75391803/f763fe0b-5ade-407e-90c5-fe1e2b761a16)
+![image](https://github.com/CarolinaCedro/K-Band-Project-v1/assets/75391803/37ec45bb-ba89-423b-befc-f02ddd3c0694)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Loanding
+![image](https://github.com/CarolinaCedro/K-Band-Project-v1/assets/75391803/6e03a24b-c738-4c4a-80ac-8105699b412b)
+![GIF animado](src/assets/ezgif.com-video-to-gif.gif)
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
