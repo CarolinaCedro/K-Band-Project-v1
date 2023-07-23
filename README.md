@@ -28,6 +28,8 @@ Loanding
 ![image](https://github.com/CarolinaCedro/K-Band-Project-v1/assets/75391803/6e03a24b-c738-4c4a-80ac-8105699b412b)
 ![GIF animado](src/assets/ezgif.com-video-to-gif.gif)
 
+construção
+
 
 
 
