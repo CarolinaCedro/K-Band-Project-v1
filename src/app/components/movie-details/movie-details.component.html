@@ -1,0 +1,23 @@
+<app-header></app-header>
+<app-loanding *ngIf="loading"></app-loanding>
+<section *ngIf="!loading">
+  <div class="btn-container">
+    <button class="btn-back" [routerLink]="['']">
+      <i class="fas fa-arrow-left"></i>
+      <div class="back">Voltar</div>
+    </button>
+  </div>
+
+  <div class="card">
+    <div class="poster">
+      <img [src]="img + movieDetails?.poster_path">
+    </div>
+    <div class="movie-info">
+      <h2>{{movieDetails?.title}}</h2>
+      <p>{{movieDetails?.overview}}</p>
+    </div>
+  </div>
+
+</section>
+
+<app-footer></app-footer>

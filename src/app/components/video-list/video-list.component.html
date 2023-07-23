@@ -1,0 +1,18 @@
+<section>
+  <app-loanding *ngIf="loading"></app-loanding>
+
+  <div class="container-video-list" *ngFor="let video of getPaginatedUsers(); let i = index">
+    <button class="element"   [routerLink]="['movie-details',video?.id]">
+      <img [src]="img + video.poster_path">
+      <div class="title">{{video?.title}}</div>
+      <div class="description">{{video?.release_date}}</div>
+    </button>
+  </div>
+  <div class="container-pagination">
+    <mat-paginator class="teste" [length]="totalItems"
+                   [pageSize]="itemsPorPagina"
+                   [pageSizeOptions]="pageSizeOptions"
+                   (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+</section>
