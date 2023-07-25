@@ -25,12 +25,10 @@ export class MovieDetailsComponent implements OnInit {
     this.loading = true;
     this.service.getDetailsAboutMovieSelected(id).subscribe(
       (res: any[]) => {
-        setTimeout(() => {
-          this.movieDetails = res;
-          this.loading = false;
-          console.log('recebido com sucesso', res);
-        }, 10000);
 
+        this.movieDetails = res;
+        this.loading = false;
+        console.log('recebido com sucesso', res);
       }, (error: any) => {
         this.loading = true;
         console.log(error);

@@ -1,5 +1,5 @@
 <div class="input-container">
-  <input type="text" placeholder="Pesquisar">
-  <button>Buscar</button>
+  <input  #search (keyup)="sendEventEmitter(search.value)" type="text" placeholder="Pesquisar">
+  <button (click)="sendEventEmitter(search.value)">Buscar</button>
 </div>
 
