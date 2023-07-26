@@ -20,7 +20,7 @@ export class KBandService {
   constructor(private http: HttpClient) {
   }
 
-  private getMoviesPage(page: number): Observable<any[]> {
+  public getMoviesPage(page: number): Observable<any> {
     const headers = new HttpHeaders({
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMjNjMWE3MGJkN2E4NmQ1YjVkOTE0OWQ4YzExYTFmMiIsInN1YiI6IjY0YmQzMGYxYWQ1MGYwMDEwMWExMDZmMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OBNJMP4uEhLJoKeulRr0nIVIoSlb8X8U4MfbwqVZqJM'
     });
@@ -33,54 +33,14 @@ export class KBandService {
       }
     });
 
-    return this.http.get<any>(`${this.url}/discover/movie?`, {headers, params}).pipe(
-      map(response => response.results
-      )
+    return this.http.get<any>(`${this.url}/discover/movie`, {headers, params}).pipe(
+      map(response => response) // Retornar apenas os resultados da página
     );
   }
 
-  getMoviesByPage(page: number): Observable<any> {
-    const headers = new HttpHeaders({
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMjNjMWE3MGJkN2E4NmQ1YjVkOTE0OWQ4YzExYTFmMiIsInN1YiI6IjY0YmQzMGYxYWQ1MGYwMDEwMWExMDZmMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OBNJMP4uEhLJoKeulRr0nIVIoSlb8X8U4MfbwqVZqJM'
-    });
 
-    const params = new HttpParams({
-      fromObject: {
-        api_key: this.apiKey,
-        language: 'pt-br',
-        page: page.toString() // Converte o número da página para string
-      }
-    });
 
-    return this.http.get<any>(`${this.url}/discover/movie`, { headers, params }).pipe(
-      map(response => {
-        console.log('valores', response.results);
-        console.log('tamanho de valores', response.results.length);
-        return response.results; // Retornar o valor do response.results
-      })
-    );
-  }
 
-  get getMovies(): Observable<any> {
-    const headers = new HttpHeaders({
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMjNjMWE3MGJkN2E4NmQ1YjVkOTE0OWQ4YzExYTFmMiIsInN1YiI6IjY0YmQzMGYxYWQ1MGYwMDEwMWExMDZmMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OBNJMP4uEhLJoKeulRr0nIVIoSlb8X8U4MfbwqVZqJM'
-    });
-
-    const params = new HttpParams({
-      fromObject: {
-        api_key: this.apiKey,
-        language: 'pt-br',
-        page: '3'
-      }
-    });
-    return this.http.get<any>(`${this.url}/discover/movie?`, {headers, params}).pipe(
-      map(response => {
-        console.log('valores', response.results);
-        console.log('tamanho de valores', response.results.length);
-        return response.results; // Retornar o valor do response.results
-      })
-    );
-  }
 
   //Esse filtra pelo id
   getMoviesByIds(genreIds: number[]): Observable<any> {

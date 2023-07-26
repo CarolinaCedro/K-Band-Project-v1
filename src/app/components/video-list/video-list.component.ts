@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {KBandService} from '../../service/k-band.service';
+import {MatPaginator, PageEvent} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-video-list',
@@ -12,10 +13,12 @@ export class VideoListComponent implements OnInit {
 
   totalItems = 0; // Variável para armazenar o número total de itens
   itemsPorPagina = 10; // Número de itens exibidos por página
-  pageSizeOptions = [5, 10, 25, 100]; // Opções de tamanhos de página disponíveis
+  pageSizeOptions = [10, 20]; // Opções de tamanhos de página disponíveis
   currentPage = 1; // Página atual
   videos: any[] = [];
   setvideos: any[] = [];
+  event: any;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   img = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/';
 
@@ -23,12 +26,12 @@ export class VideoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.getMovies.subscribe(
+    this.service.getMoviesPage(1).subscribe(
       res => {
         console.log('aqui o console', res);
-        this.setvideos = res;
+        this.setvideos = res.results;
         this.videos = this.setvideos;
-        this.totalItems = this.videos.length;
+        this.totalItems = res.total_results;
         console.log('aqui os videos retornados', this.videos);
         // console.log('aqui a pagina', total_pages);
         // console.log('aqui results total ', res.results.total_results);
@@ -40,7 +43,6 @@ export class VideoListComponent implements OnInit {
       }
     );
   }
-
 
 
   /**
@@ -65,16 +67,19 @@ export class VideoListComponent implements OnInit {
   }
 
 
-  onPageChange(event: any): void {
-    // Atualiza a página atual quando ocorre a mudança de página
+  onPageChange(event: PageEvent): void {
     this.currentPage = event.pageIndex + 1;
     this.itemsPorPagina = event.pageSize;
+
+    this.service.getMoviesPage(this.currentPage).subscribe(
+      res => {
+        this.videos = res.results; // Atualizar a variável videos com os resultados da próxima página
+      },
+      (error: any) => {
+        console.error(error);
+      }
+    );
   }
 
-  getPaginatedUsers(): any[] {
-    // Retorna os  correspondentes à página atual
-    const startIndex = (this.currentPage - 1) * this.itemsPorPagina; // Índice de início da página
-    const endIndex = startIndex + this.itemsPorPagina; // Índice de fim da página
-    return this.videos.slice(startIndex, endIndex); // Retorna uma fatia dos usuários com base nos índices
-  }
+
 }

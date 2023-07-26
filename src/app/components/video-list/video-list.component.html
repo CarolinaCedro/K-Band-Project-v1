@@ -15,11 +15,14 @@
       <div class="description">{{video?.release_date}}</div>
     </button>
   </div>
-<!--  <div class="container-pagination">-->
-<!--    <mat-paginator class="teste" [length]="totalItems"-->
-<!--                   [pageSize]="itemsPorPagina"-->
-<!--                   [pageSizeOptions]="pageSizeOptions"-->
-<!--                   (page)="onPageChange($event)">-->
-<!--    </mat-paginator>-->
-<!--  </div>-->
+  <div class="container-pagination">
+    <mat-paginator
+      class="teste"
+      showFirstLastButtons
+      [length]="totalItems"
+      [pageSize]="itemsPorPagina"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="onPageChange($event)"
+    ></mat-paginator>
+  </div>
 </section>
